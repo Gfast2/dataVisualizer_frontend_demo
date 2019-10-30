@@ -4,7 +4,9 @@
   "description": "React Data Visualizer",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --progress --color --env dev --mode development --open",
+    "build": "webpack --progress --color --profile --env production --mode production"
   },
   "keywords": [
     "React",
