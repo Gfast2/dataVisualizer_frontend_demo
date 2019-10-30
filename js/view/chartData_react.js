@@ -24,19 +24,23 @@ export default class ChartData extends React.Component {
   visuInit() {
     const visu = new Visu({
       dom: this.state.divID,
-      data:this.props.mainList
+      mainL:this.props.mainList
     });
     this.setState({ visuObj: visu });
   }
 
   // Update visualization
   visuUpdate() {
-
+    const { visuObj } = this.state;
+    const { mainList } = this.props;
+    if( visuObj === null) {
+      console.log("call visuObj before initialization");
+      return;
+    }
+    visuObj.updateChart(mainList);
   }
 
   componentDidMount() {
-    // console.log('sensor data get mounted.');
-    // console.log(this.props);
     this.visuInit();
   }
 
@@ -45,7 +49,6 @@ export default class ChartData extends React.Component {
   }
 
   render() {
-    // console.log("chartData_react.js update");
     return (
       <div id={this.state.divID} className="" >chartData_react.js</div>
     );
