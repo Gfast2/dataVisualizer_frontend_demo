@@ -2,6 +2,24 @@
 
 import { applyMiddleware, createStore, combineReducers, compose } from 'redux';
 import ReduxThunk from 'redux-thunk';
+import bnXhr from './xhr'; // backend access
+
+// Init / restart a data aquiring sequence
+export const initMainList = () => dispatch => {
+  const cb = (err, res) => {
+    if (err) {
+      return alert("Initialization failed!");
+    }
+    dispatch({
+      type: 'UPDATE_MAINLIST',
+      payload: [res]
+    });
+  };
+  bnXhr({
+    cb,
+    req: 'init'
+  });
+};
 
 const initState = {
   db: {
