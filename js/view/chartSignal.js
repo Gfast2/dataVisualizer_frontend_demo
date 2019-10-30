@@ -18,15 +18,15 @@ export default parent => {
   const txTitle = {
     "text-anchor": "end",
     "fill": "#DDD",
-    "font-weight":"bold",
+    "font-weight": "bold",
     "font-size": 90
   };
 
   const paper = ra(dom, 5000, visuH);
   const xyOffSet = 20; // margin between chart and the border of the chart
   const startPoint = {
-    x:0 + xyOffSet,
-    y:visuH - xyOffSet
+    x: 0 + xyOffSet,
+    y: visuH - xyOffSet
   }; // The left-down corner
 
   // Draw three line
@@ -76,7 +76,7 @@ export default parent => {
         e.index
       ).attr(txStyle);
     });
-    paper.text(visuW * 29 / 30, visuH / 4, "Data").attr(txTitle);
+    paper.text(visuW * 29 / 30, visuH / 4, "Signal").attr(txTitle);
   };
 
   // Draw the actual chart
@@ -84,8 +84,8 @@ export default parent => {
     const listLen = arr.length;
     let maxData = 0;
     arr.map(e => {
-      const bigD = parseInt(e.data);
-      if(bigD > maxData) {
+      const bigD = parseInt(e.signal);
+      if (bigD > maxData) {
         maxData = bigD;
       }
     });
@@ -93,8 +93,8 @@ export default parent => {
       ? 0
       : (visuW - 2 * xyOffSet) / (listLen - 1);
     let chartArr = [['M', startPoint.x, startPoint.y]];
-    arr.map((e,i) => {
-      const curData = parseInt(e.data);
+    arr.map((e, i) => {
+      const curData = parseInt(e.signal);
       const percent = maxData === 0 ? 1 : (1 - (curData / maxData));
       chartArr = [
         ...chartArr,
@@ -105,8 +105,8 @@ export default parent => {
         ]
       ];
     });
-    if(listLen > 1) {
-      chartArr = [ ...chartArr, [ 'L', visuW - xyOffSet, visuH - xyOffSet ] ];
+    if (listLen > 1) {
+      chartArr = [...chartArr, ['L', visuW - xyOffSet, visuH - xyOffSet]];
     }
     paper
       .path("M0,0")
@@ -123,7 +123,7 @@ export default parent => {
 
   const initChart = arr => {
     paper.clear();
-    if(arr.length === 0) {
+    if (arr.length === 0) {
       return;
     }
     drawThreeLine();

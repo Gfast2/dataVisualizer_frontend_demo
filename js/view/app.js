@@ -63,7 +63,7 @@ export default class App extends React.Component {
     return <div>
       <h1>Su's Data Visualizer</h1>
       <ChartData />
-      <div id='chart_signal'></div>
+      <ChartSignal />
       <button title='Aquiring next data' onClick={nextData}>Next</button>
       <button title='Restart from beginning' onClick={resetData}>Reset</button>
       <div>Current Data Index</div>
