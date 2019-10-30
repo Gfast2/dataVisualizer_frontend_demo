@@ -6,8 +6,8 @@ import '../../css/style.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faPhoneAlt, faArrowCircleDown, faPlusCircle, faArrowCircleUp, faHatWizard } from '@fortawesome/free-solid-svg-icons'
-library.add(faPhoneAlt, faArrowCircleDown, faPlusCircle, faArrowCircleUp, faHatWizard);
+import { faUndo, faCaretSquareRight, faHatWizard } from '@fortawesome/free-solid-svg-icons'
+library.add(faUndo, faCaretSquareRight, faHatWizard);
 import '@babel/polyfill'; // For IE11, 'Promise'
 import ChartData from './chartData_react';
 import ChartSignal from './chartSignal_react';
@@ -61,17 +61,40 @@ export default class App extends React.Component {
       latestObj = mainList[mlLen-1];
     }
     return <div>
-      <h1>Su's Data Visualizer</h1>
+      <h1 className='main-title'>Su's Data Visualizer</h1>
       <ChartData />
       <ChartSignal />
-      <button title='Aquiring next data' onClick={nextData}>Next</button>
-      <button title='Restart from beginning' onClick={resetData}>Reset</button>
-      <div>Current Data Index</div>
-      <div>{latestObj['index']}</div>
-      <div>Current Data Content</div>
-      <div>{latestObj['data']}</div>
-      <div>Current Data Signal</div>
-      <div>{latestObj['signal']}</div>
+      <div className='flex-con'>
+        <div className='flex-con-btn'>
+          <button title='Aquiring next data' onClick={nextData}
+            className='btn btn-lg btn-primary flex-it-btn'>
+            <FontAwesomeIcon icon={faCaretSquareRight} /> Next
+          </button>
+          <br></br>
+          <button title='Restart from beginning' onClick={resetData}
+            className='btn btn-lg btn-danger flex-it-btn'
+          ><FontAwesomeIcon icon={faUndo} /> Reset</button>
+        </div>
+        <table className='table shadow bg-white rounded table-margin'>
+          <tbody>
+          <tr>
+            <th colSpan='2' className='text-center'>Current Data</th>
+          </tr>
+          <tr>
+            <th className=''>Index</th>
+            <td className=''>{latestObj['index']}</td>
+          </tr>
+          <tr>
+            <th className=''>Content</th>
+            <td className=''>{latestObj['data']}</td>
+          </tr>
+          <tr>
+            <th className=''>Signal</th>
+            <td className=''>{latestObj['signal']}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   }
 }

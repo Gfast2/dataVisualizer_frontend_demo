@@ -50,7 +50,7 @@ export default class ChartData extends React.Component {
 
   render() {
     return (
-      <div id={this.state.divID} className="" >chartSignal_react.js</div>
+      <div id={this.state.divID} className="" />
     );
   }
 

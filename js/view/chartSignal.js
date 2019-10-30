@@ -22,7 +22,7 @@ export default parent => {
     "font-size": 90
   };
 
-  const paper = ra(dom, 5000, visuH);
+  const paper = ra(dom, visuW, visuH);
   const xyOffSet = 20; // margin between chart and the border of the chart
   const startPoint = {
     x: 0 + xyOffSet,
