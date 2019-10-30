@@ -36,7 +36,9 @@ cd ~/workspace/data_visualizer/dataVisualizer_backend_demo/
 npm start
 ```
 Lastely open your browser and visit url:
+```sh
 <hostIP>:8080
+```
 
 **P.s.:**
 Make sure port 8080 and 8081 are free on your machine. Here is the setup I used
