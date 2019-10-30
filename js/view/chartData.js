@@ -10,6 +10,17 @@ export default parent => {
   const midY = visuH / 2;
   console.log("chartData.js");
   console.log(mainL);
+  const txStyle = {
+    "text-anchor": "middle",
+    "fill": "#666",
+    "font-size": 13
+  };
+  const txTitle = {
+    "text-anchor": "middle",
+    "fill": "#DDD",
+    "font-weight":"bold",
+    "font-size": 90
+  };
 
   const paper = ra(dom, 5000, visuH);
   const xyOffSet = 20; // margin between chart and the border of the chart
@@ -46,6 +57,26 @@ export default parent => {
         "stroke-width": 1,
         "stroke-linecap": "round"
       });
+  };
+
+  // Draw all Texts on the Chart
+  const drawTexts = (ar, maxVal, stepSiz) => {
+    if (parseInt(maxVal / 2) !== 0) {
+      paper.text(
+        xyOffSet / 2,
+        xyOffSet + (visuH - xyOffSet * 2) / 2,
+        parseFloat(maxVal / 2)
+      ).attr(txStyle);
+    }
+    paper.text(xyOffSet / 2, xyOffSet, maxVal).attr(txStyle);
+    ar.map((e, i) => {
+      paper.text(
+        startPoint.x + stepSiz * i,
+        visuH - xyOffSet / 2,
+        e.index
+      ).attr(txStyle);
+    });
+    paper.text(visuW * 6 / 7, visuH / 4, "Data").attr(txTitle);
   };
 
   // Draw the actual chart
@@ -86,7 +117,7 @@ export default parent => {
         "stroke-width": 2,
         "stroke-linecap": "round"
       });
-    // TODO: Draw other marks on axises
+    drawTexts(arr, maxData, stepSize);
   };
 
   const initChart = arr => {
