@@ -24,6 +24,7 @@ cd ~/workspace/data_visualizer/dataVisualizer_frontend_demo
 npm i
 ```
 Start both front and backend in different console:
+
 Frontend:
 ```sh
 cd ~/workspace/data_visualizer/dataVisualizer_frontend_demo
@@ -39,11 +40,12 @@ Lastely open your browser and visit url:
 
 **P.s.:**
 Make sure port 8080 and 8081 are free on your machine. Here is the setup I used
-| Part | Type & Version |
-|------|----------------|
-| host OS  | Ubuntu Mate 18.04.2 64bit i VirtualBox |
-| Nodejs   | V12.13.0 |
-| Npm      | 6.12.0   |
-| Browser  | V77.0.3865.75 |
-| User OS  | Windows 10 HOME 1809 17763.805 |
+
+|Part   | Type & Version                         |
+|-------|----------------------------------------|
+|host OS| Ubuntu Mate 18.04.2 64bit i VirtualBox |
+|Nodejs | V12.13.0                               |
+|Npm    | 6.12.0                                 |
+|Browser| V77.0.3865.75                          |
+|User OS| Windows 10 HOME 1809 17763.805         |
 
