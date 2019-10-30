@@ -17,7 +17,7 @@ export default parent => {
   };
   const txTitle = {
     "text-anchor": "end",
-    "fill": "#DDD",
+    "fill": "#8DE399",
     "font-weight":"bold",
     "font-size": 90
   };
@@ -92,6 +92,7 @@ export default parent => {
     let stepSize = listLen === 1 // distance between each data step
       ? 0
       : (visuW - 2 * xyOffSet) / (listLen - 1);
+    drawTexts(arr, maxData, stepSize);
     let chartArr = [['M', startPoint.x, startPoint.y]];
     arr.map((e,i) => {
       const curData = parseInt(e.data);
@@ -112,13 +113,10 @@ export default parent => {
       .path("M0,0")
       .attr({
         path: chartArr,
-        stroke: '#AAA',
-        fill: "#eee",
-        'fill-opacity': 0.3,
+        stroke: '#3AF09D',
         "stroke-width": 2,
         "stroke-linecap": "round"
       });
-    drawTexts(arr, maxData, stepSize);
   };
 
   const initChart = arr => {

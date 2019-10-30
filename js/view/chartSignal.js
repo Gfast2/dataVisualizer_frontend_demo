@@ -17,7 +17,7 @@ export default parent => {
   };
   const txTitle = {
     "text-anchor": "end",
-    "fill": "#DDD",
+    "fill": "#FF9F9E",
     "font-weight": "bold",
     "font-size": 90
   };
@@ -93,6 +93,7 @@ export default parent => {
       ? 0
       : (visuW - 2 * xyOffSet) / (listLen - 1);
     let chartArr = [['M', startPoint.x, startPoint.y]];
+    drawTexts(arr, maxData, stepSize);
     arr.map((e, i) => {
       const curData = parseInt(e.signal);
       const percent = maxData === 0 ? 1 : (1 - (curData / maxData));
@@ -112,13 +113,12 @@ export default parent => {
       .path("M0,0")
       .attr({
         path: chartArr,
-        stroke: '#AAA',
-        fill: "#eee",
+        stroke: '#FF9F9E',
+        fill: "#FAA9A7",
         'fill-opacity': 0.3,
         "stroke-width": 2,
         "stroke-linecap": "round"
       });
-    drawTexts(arr, maxData, stepSize);
   };
 
   const initChart = arr => {
@@ -126,8 +126,8 @@ export default parent => {
     if (arr.length === 0) {
       return;
     }
-    drawThreeLine();
     chartGen(arr);
+    drawThreeLine();
   };
   initChart(mainL);
   return {
