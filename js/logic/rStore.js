@@ -21,6 +21,24 @@ export const initMainList = () => dispatch => {
   });
 };
 
+// Init / restart a data aquiring sequence
+export const nextData = () => dispatch => {
+  const cb = (err, res) => {
+    if (err) {
+      return alert("Get next Data failed!");
+    }
+    const oldMainList = store.getState().db.mainList;
+    dispatch({
+      type: 'UPDATE_MAINLIST',
+      payload: [...oldMainList, res]
+    });
+  };
+  bnXhr({
+    cb,
+    req: 'next'
+  });
+};
+
 const initState = {
   db: {
     mainList: [], // Object list, store {"index":<index>,"data":<data>,"signal":<signal>,"final":<final>}
