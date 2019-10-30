@@ -9,6 +9,8 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faPhoneAlt, faArrowCircleDown, faPlusCircle, faArrowCircleUp, faHatWizard } from '@fortawesome/free-solid-svg-icons'
 library.add(faPhoneAlt, faArrowCircleDown, faPlusCircle, faArrowCircleUp, faHatWizard);
 import '@babel/polyfill'; // For IE11, 'Promise'
+import ChartData from './chartData_react';
+import ChartSignal from './chartSignal_react';
 import {
   store,
   initMainList,
@@ -60,7 +62,7 @@ export default class App extends React.Component {
     }
     return <div>
       <h1>Su's Data Visualizer</h1>
-      <div id='chart_data'></div>
+      <ChartData />
       <div id='chart_signal'></div>
       <button title='Aquiring next data' onClick={nextData}>Next</button>
       <button title='Restart from beginning' onClick={resetData}>Reset</button>
