@@ -8,6 +8,16 @@
 
 A quick 1 day Code-Challenge demo to show _'my way'_ to implemente a simple Data Visualization tool. It's made of a simple backend (nodejs) and a React + Redux frontend. For the visualization I choose [Raphael js](https://dmitrybaranovskiy.github.io/raphael/), For the Souce Code transcompiling I use Webpack.
 
+## DoD
+
+_(Definition of Done)_
+- I think a proper demo for async communication between backend and frontend is still a very important part. So the finish product should have a proper structure made of front / backend which communicate with each other through `XMLHttpRequest`.
+- In this demo there should be some minimal user interaction to demonstrate the communication between user <-> this App, Frontend <-> Backend, React <-> Redux and different React Components.
+- For the purpose of this test, `Redux` as state machine is definitive a _"over-kill"_, but a basic usage of it here will show if or not I can understand / use it well.
+- I will use the "React Class Component", because this is what I did since 2016, and I'm very comfortable with it. There are "React Functional Component" out since 2018. I've spent some time with it. Source Code written with it is more readable and divide state logic handling from view easier, but as the React doc specified, they do not suggest developer to rewrite there exist Compoenent with it. I believe it's still a big bonus that someone write and understand the old one, because there are already many React Component implemented with it.
+- Because of the time limitation, I won't write unit test for any thing here. But I will if later on it's needed from someone or I happen to have the motivation and time for it.
+
+
 ## Getting Started
 
 This project is made of two repository - Front- / Backend.
