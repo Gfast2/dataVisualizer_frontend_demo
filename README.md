@@ -59,6 +59,6 @@ Make sure port 8080 and 8081 are free on your machine. Here is the setup I used
 |host OS| Ubuntu Mate 18.04.2 64bit i VirtualBox |
 |Nodejs | V12.13.0                               |
 |Npm    | 6.12.0                                 |
-|Browser| V77.0.3865.75                          |
+|Browser| Google Chrome V77.0.3865.75            |
 |User OS| Windows 10 HOME 1809 17763.805         |
 
